@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.AccessTypes.Date;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/29.

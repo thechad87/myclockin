@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.TimeAndDateStamp.DateTracker;
+import com.chadmarthinussen.domain.TimeAndDateStamp.DateTracker;
 import com.chadmarthinussen.repository.DateTrackerRepository;
 import com.chadmarthinussen.repository.impl.DateTrackerRepositoryImpl;
 import com.chadmarthinussen.services.DateTrackerService;
@@ -12,8 +12,8 @@ import java.util.Set;
 /**
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
-
 @Service("DateTrackerServiceImpl")
+//@Service
 public class DateTrackerServiceImpl implements DateTrackerService {
 
 

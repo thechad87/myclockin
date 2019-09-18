@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import com.chadmarthinussen.repository.ContractorRepository;
 import com.chadmarthinussen.repository.impl.ContractorRepositoryImpl;
 import com.chadmarthinussen.services.ContractorService;
@@ -12,8 +12,8 @@ import java.util.Set;
 /**
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
-
 @Service("ContractorServiceImpl")
+//@Service
 public class ContractorServiceImpl implements ContractorService {
 
     private static ContractorServiceImpl service = null;

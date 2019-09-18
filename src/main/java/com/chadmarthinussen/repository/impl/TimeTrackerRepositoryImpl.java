@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.TimeAndDateStamp.TimeTracker;
+import com.chadmarthinussen.domain.TimeAndDateStamp.TimeTracker;
 import com.chadmarthinussen.repository.TimeTrackerRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import com.chadmarthinussen.factory.ContractorFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class ContractorControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/contractor";
+    private String baseURL = "http://localhost:8080/clockin/contractor";
 
     @Test
     public void testGetAllContractors() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -43,8 +43,8 @@ public class ContractorControllerTest {
 
     @Test
     public void testCreateContractor() {
-        Contractor contractor = ContractorFactory.getContractor(true, "12", "C0001");
-        ResponseEntity<Contractor> postResponse = restTemplate.postForEntity(baseURL + "/create", contractor, Contractor.class);
+        Contractor contractor = ContractorFactory.buildContractor(true, "12", "C0001");
+        ResponseEntity <Contractor> postResponse = restTemplate.postForEntity(baseURL + "/create", contractor, Contractor.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

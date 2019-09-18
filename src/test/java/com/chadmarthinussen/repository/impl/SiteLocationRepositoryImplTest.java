@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 import com.chadmarthinussen.factory.SiteLocationFactory;
 import com.chadmarthinussen.repository.SiteLocationRepository;
 import org.junit.Assert;
@@ -30,7 +30,9 @@ public class SiteLocationRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = SiteLocationRepositoryImpl.getRepository();
-        this.siteLocation = SiteLocationFactory.buildSiteLocation("Test SiteLocation");
+        this.siteLocation = SiteLocationFactory
+                .buildSiteLocation("Test SiteLocation", "2"
+                        , "4th ave", "stellenbosch", "cape town", "5000");
     }
 
     @Test
@@ -61,11 +63,11 @@ public class SiteLocationRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test SiteLocation Name";
-        SiteLocation siteLocation = new SiteLocation.Builder().copy(getSavedSiteLocation()).siteLocationName(newname).build();
+        SiteLocation siteLocation = new SiteLocation.Builder().copy(getSavedSiteLocation()).sitelocationID(newname).build();
         System.out.println("In update, about_to_updated = " + siteLocation);
         SiteLocation updated = this.repository.update(siteLocation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getSiteLocationName());
+        Assert.assertSame(newname, updated.getSiteLocationID());
         d_getAll();
     }
 

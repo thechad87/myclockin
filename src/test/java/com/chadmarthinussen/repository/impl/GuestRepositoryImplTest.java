@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 import com.chadmarthinussen.factory.GuestFactory;
 import com.chadmarthinussen.repository.GuestRepository;
 import org.junit.Assert;
@@ -29,7 +29,7 @@ public class GuestRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = GuestRepositoryImpl.getRepository();
-        this.guest = GuestFactory.buildGuest("Test Guest");
+        this.guest = GuestFactory.buildGuest("Woolworths", "12345", "chad mart", "021 578987");
     }
 
     @Test
@@ -43,8 +43,8 @@ public class GuestRepositoryImplTest {
     @Test
     public void b_read() {
         Guest savedGuest = getSavedGuest();
-        System.out.println("In read, guestID = "+ savedGuest.getGuestID());
-        Guest read = this.repository.read(savedGuest.getGuestID());
+        System.out.println("In read, guestID = "+ savedGuest.getGuestAssignedID());
+        Guest read = this.repository.read(savedGuest.getGuestAssignedID());
         System.out.println("In read, read = " + read);
         d_getAll();
         Assert.assertEquals(savedGuest, read);
@@ -53,18 +53,16 @@ public class GuestRepositoryImplTest {
     @Test
     public void e_delete() {
         Guest savedGuest = getSavedGuest();
-        this.repository.delete(savedGuest.getGuestID());
+        this.repository.delete(savedGuest.getGuestAssignedID());
         d_getAll();
     }
-
     @Test
     public void c_update() {
-        String newname = "New Test Guest Name";
-        Guest guest = new Guest.Builder().copy(getSavedGuest()).guestName(newname).build();
+        String newname = "New Date";
         System.out.println("In update, about_to_updated = " + guest);
         Guest updated = this.repository.update(guest);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getGuestName());
+        Assert.assertSame(newname, updated.getFullName());
         d_getAll();
     }
 

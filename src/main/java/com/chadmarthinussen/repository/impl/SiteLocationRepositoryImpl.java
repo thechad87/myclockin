@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 import com.chadmarthinussen.repository.SiteLocationRepository;
 import org.springframework.stereotype.Repository;
 

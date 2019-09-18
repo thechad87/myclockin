@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services;
 
-import com.chadmarthinussen.Domain.Location.SiteFloorLocation;
+import com.chadmarthinussen.domain.Location.SiteFloorLocation;
 
 import java.util.Set;
 

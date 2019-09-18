@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.TimeAndDateStamp.DateTracker;
+import com.chadmarthinussen.domain.TimeAndDateStamp.DateTracker;
 
 import java.util.Set;
 

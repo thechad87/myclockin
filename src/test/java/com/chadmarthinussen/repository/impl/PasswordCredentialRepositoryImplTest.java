@@ -1,6 +1,7 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.PasswordCredential;
+import com.chadmarthinussen.domain.AccessTypes.PasswordCredential;
+import com.chadmarthinussen.factory.PasswordCredentialFactory;
 import com.chadmarthinussen.repository.PasswordCredentialRepository;
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,7 +29,8 @@ public class PasswordCredentialRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = PasswordCredentialRepositoryImpl.getRepository();
-        this.passwordCredential = PasswordCredentialFactory.buildPasswordCredential("Test PasswordCredential");
+        this.passwordCredential = PasswordCredentialFactory
+                .buildPasswordCredential("Test PasswordCredential" , "joe1990","Joe@gmail.com");
     }
 
     @Test
@@ -42,8 +44,8 @@ public class PasswordCredentialRepositoryImplTest {
     @Test
     public void b_read() {
         PasswordCredential savedPasswordCredential = getSavedPasswordCredential();
-        System.out.println("In read, passwordCredentialID = "+ savedPasswordCredential.getPasswordCredentialID());
-        PasswordCredential read = this.repository.read(savedPasswordCredential.getPasswordCredentialID());
+        System.out.println("In read, passwordCredentialID = "+ savedPasswordCredential.getUserPasswordCredentials());
+        PasswordCredential read = this.repository.read(savedPasswordCredential.getUserPasswordCredentials());
         System.out.println("In read, read = " + read);
         d_getAll();
         Assert.assertEquals(savedPasswordCredential, read);
@@ -52,18 +54,18 @@ public class PasswordCredentialRepositoryImplTest {
     @Test
     public void e_delete() {
         PasswordCredential savedPasswordCredential = getSavedPasswordCredential();
-        this.repository.delete(savedPasswordCredential.getPasswordCredentialID());
+        this.repository.delete(savedPasswordCredential.getUserPasswordCredentials());
         d_getAll();
     }
 
     @Test
     public void c_update() {
         String newname = "New Test PasswordCredential Name";
-        PasswordCredential passwordCredential = new PasswordCredential.Builder().copy(getSavedPasswordCredential()).passwordCredentialName(newname).build();
+        PasswordCredential passwordCredential = new PasswordCredential.Builder().copy(getSavedPasswordCredential()).userPasswordCredentials(newname).build();
         System.out.println("In update, about_to_updated = " + passwordCredential);
         PasswordCredential updated = this.repository.update(passwordCredential);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getPasswordCredentialName());
+        Assert.assertSame(newname, updated.getUserPasswordCredentials());
         d_getAll();
     }
 

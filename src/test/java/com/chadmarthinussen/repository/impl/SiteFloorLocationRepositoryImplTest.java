@@ -1,12 +1,13 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.Location.SiteFloorLocation;
+import com.chadmarthinussen.domain.Location.SiteFloorLocation;
 import com.chadmarthinussen.factory.SiteFloorLocationFactory;
 import com.chadmarthinussen.repository.SiteFloorLocationRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
@@ -28,7 +29,8 @@ public class SiteFloorLocationRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = SiteFloorLocationRepositoryImpl.getRepository();
-        this.siteFloorLocation = SiteFloorLocationFactory.buildSiteFloorLocation("Test SiteFloorLocation");
+        this.siteFloorLocation = SiteFloorLocationFactory
+                .buildSiteFloorLocation("Test SiteFloorLocation", "foreshore", "3", "lift");
     }
 
     @Test
@@ -59,11 +61,11 @@ public class SiteFloorLocationRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test SiteFloorLocation Name";
-        SiteFloorLocation siteFloorLocation = new SiteFloorLocation.Builder().copy(getSavedSiteFloorLocation()).siteFloorLocationName(newname).build();
+        SiteFloorLocation siteFloorLocation = new SiteFloorLocation.Builder().copy(getSavedSiteFloorLocation()).siteFloorLocationID(newname).build();
         System.out.println("In update, about_to_updated = " + siteFloorLocation);
         SiteFloorLocation updated = this.repository.update(siteFloorLocation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getSiteFloorLocationName());
+        Assert.assertSame(newname, updated.getSiteFloorLocationID());
         d_getAll();
     }
 

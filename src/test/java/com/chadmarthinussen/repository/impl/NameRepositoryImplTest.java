@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 import com.chadmarthinussen.factory.NameFactory;
 import com.chadmarthinussen.repository.NameRepository;
 import org.junit.Assert;
@@ -29,7 +29,7 @@ public class NameRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = NameRepositoryImpl.getRepository();
-        this.name = NameFactory.buildName("Test Name");
+        this.name = NameFactory.buildName("name1", "joe", "the", "Barber");
     }
 
     @Test
@@ -59,12 +59,12 @@ public class NameRepositoryImplTest {
 
     @Test
     public void c_update() {
-        String newname = "New Test Name Name";
-        Name name = new Name.Builder().copy(getSavedName()).nameName(newname).build();
+        String newname = "ID12";
+        Name name = new Name.Builder().copy(getSavedName()).nameID(newname).build();
         System.out.println("In update, about_to_updated = " + name);
         Name updated = this.repository.update(name);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getNameName());
+        Assert.assertSame(newname, updated.getNameID());
         d_getAll();
     }
 

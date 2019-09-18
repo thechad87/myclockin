@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import com.chadmarthinussen.repository.ContractorRepository;
 import org.springframework.stereotype.Repository;
 

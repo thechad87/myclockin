@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/17.

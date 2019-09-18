@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 
 import java.util.Set;
 
@@ -9,5 +9,6 @@ import java.util.Set;
  */
 
 public interface GuestService extends IService<Guest, String> {
+        Guest retrieveByDesc(String genderDesc);
         Set<Guest> getAll();
 }

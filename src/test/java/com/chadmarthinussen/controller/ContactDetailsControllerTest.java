@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.PersonalDetails.ContactDetails;
+import com.chadmarthinussen.domain.PersonalDetails.ContactDetails;
 import com.chadmarthinussen.factory.ContactDetailsFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ import static org.junit.Assert.assertNotNull;
 public class ContactDetailsControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/contactDetails";
+    private String baseURL = "http://localhost:8080/clockin/contactDetails";
 
     @Test
     public void testGetAllContactDetailss() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -43,8 +43,8 @@ public class ContactDetailsControllerTest {
 
     @Test
     public void testCreateContactDetails() {
-        ContactDetails contactDetails = ContactDetailsFactory.getContactDetails("#001", "021708333", "0825990099", "cmarty@gmail.com");
-        ResponseEntity<ContactDetails> postResponse = restTemplate.postForEntity(baseURL + "/create", contactDetails, ContactDetails.class);
+        ContactDetails contactDetails = ContactDetailsFactory.buildContactDetails("#001", "021708333", "0825990099", "cmarty@gmail.com");
+        ResponseEntity <ContactDetails> postResponse = restTemplate.postForEntity(baseURL + "/create", contactDetails, ContactDetails.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

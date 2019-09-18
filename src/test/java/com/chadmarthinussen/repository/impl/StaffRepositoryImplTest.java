@@ -1,6 +1,8 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.UserlType.Staff;
+import com.chadmarthinussen.factory.NameFactory;
 import com.chadmarthinussen.factory.StaffFactory;
 import com.chadmarthinussen.repository.StaffRepository;
 import org.junit.Assert;
@@ -20,6 +22,7 @@ public class StaffRepositoryImplTest {
 
     private StaffRepository repository;
     private Staff staff;
+    private Name name;
 
     private Staff getSavedStaff() {
         Set<Staff> savedStaffs = this.repository.getAll();
@@ -28,8 +31,9 @@ public class StaffRepositoryImplTest {
 
     @Before
     public void setUp() throws Exception {
+        name = NameFactory.buildName("Name test", "joe", "the", "barber");
         this.repository = StaffRepositoryImpl.getRepository();
-        this.staff = StaffFactory.buildStaff("Test Staff");
+        this.staff = StaffFactory.buildStaff(name , "W23456");
     }
 
     @Test
@@ -60,11 +64,11 @@ public class StaffRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test Staff Name";
-        Staff staff = new Staff.Builder().copy(getSavedStaff()).staffName(newname).build();
+        Staff staff = new Staff.Builder().copy(getSavedStaff()).staffID(newname).build();
         System.out.println("In update, about_to_updated = " + staff);
         Staff updated = this.repository.update(staff);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getStaffName());
+        Assert.assertSame(newname, updated.getStaffID());
         d_getAll();
     }
 

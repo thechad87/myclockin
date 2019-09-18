@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 import com.chadmarthinussen.repository.InternRepository;
 import com.chadmarthinussen.repository.impl.InternRepositoryImpl;
 import com.chadmarthinussen.services.InternService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("InternServiceImpl")
+//@Service
 public class InternServiceImpl implements InternService {
 
     @Autowired

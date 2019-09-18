@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
-import com.chadmarthinussen.Domain.TimeAndDateStamp.DateTracker;
+import com.chadmarthinussen.domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.TimeAndDateStamp.DateTracker;
 
 /**
  * Created by ChadMarthinussen2 on 2019/05/20.

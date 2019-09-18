@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.AccessTypes.Date;
 import com.chadmarthinussen.factory.DateFactory;
 import com.chadmarthinussen.repository.DateRepository;
 import org.junit.Assert;
@@ -29,7 +29,7 @@ public class DateRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = DateRepositoryImpl.getRepository();
-        this.date = DateFactory.buildDate("Test Date");
+        this.date = DateFactory.buildDate("Test Date", "01", "12", "1998");
     }
 
     @Test
@@ -59,12 +59,12 @@ public class DateRepositoryImplTest {
 
     @Test
     public void c_update() {
-        String newname = "New Test Date Name";
-        Date date = new Date.Builder().copy(getSavedDate()).dateName(newname).build();
+        String testD = "Test_Date";
+        Date date = new Date.Builder().copy(getSavedDate()).dateID(testD).build();
         System.out.println("In update, about_to_updated = " + date);
         Date updated = this.repository.update(date);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getDateName());
+        Assert.assertSame(testD, updated.getDateID());
         d_getAll();
     }
 

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/23.

@@ -1,12 +1,15 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.TimeAndDateStamp.TimeTracker;
+import com.chadmarthinussen.domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.TimeAndDateStamp.TimeTracker;
+import com.chadmarthinussen.factory.TimeFactory;
 import com.chadmarthinussen.factory.TimeTrackerFactory;
 import com.chadmarthinussen.repository.TimeTrackerRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
@@ -19,6 +22,7 @@ public class TimeTrackerRepositoryImplTest {
 
     private TimeTrackerRepository repository;
     private TimeTracker timeTracker;
+    private Time time;
 
     private TimeTracker getSavedTimeTracker() {
         Set<TimeTracker> savedTimeTrackers = this.repository.getAll();
@@ -27,8 +31,10 @@ public class TimeTrackerRepositoryImplTest {
 
     @Before
     public void setUp() throws Exception {
+        Time timeIn = TimeFactory.buildTime("T1_012", "12", "34", "2");
+        Time timeOut = TimeFactory.buildTime("T1_011", "0", "0", "0");
         this.repository = TimeTrackerRepositoryImpl.getRepository();
-        this.timeTracker = TimeTrackerFactory.buildTimeTracker("Test TimeTracker");
+        this.timeTracker = TimeTrackerFactory.buildTimeTracker("T1_123", timeIn, timeOut, true );
     }
 
     @Test
@@ -59,11 +65,11 @@ public class TimeTrackerRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test TimeTracker Name";
-        TimeTracker timeTracker = new TimeTracker.Builder().copy(getSavedTimeTracker()).timeTrackerName(newname).build();
+        TimeTracker timeTracker = new TimeTracker.Builder().copy(getSavedTimeTracker()).timeTrackerID(newname).build();
         System.out.println("In update, about_to_updated = " + timeTracker);
         TimeTracker updated = this.repository.update(timeTracker);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getTimeTrackerName());
+        Assert.assertSame(newname, updated.getTimeTrackerID());
         d_getAll();
     }
 

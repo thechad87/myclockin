@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 
 import java.util.Set;
 

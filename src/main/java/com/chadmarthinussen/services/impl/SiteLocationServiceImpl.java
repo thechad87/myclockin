@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 import com.chadmarthinussen.repository.SiteLocationRepository;
 import com.chadmarthinussen.repository.impl.SiteLocationRepositoryImpl;
 import com.chadmarthinussen.services.SiteLocationService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("SiteLocationServiceImpl")
+//@Service
 public class SiteLocationServiceImpl implements SiteLocationService {
 
     @Autowired
@@ -23,7 +24,7 @@ public class SiteLocationServiceImpl implements SiteLocationService {
         this.repository = SiteLocationRepositoryImpl.getRepository();
     }
 
-    public static SiteLocationServiceImpl getService(){
+    public static SiteLocationServiceImpl getSiteLocoationService() {
         if (service == null) service = new SiteLocationServiceImpl();
         return service;
     }
@@ -49,7 +50,7 @@ public class SiteLocationServiceImpl implements SiteLocationService {
     }
 
     @Override
-    public Set<SiteLocation> getAll() {
+    public Set <SiteLocation> getAll() {
         return this.repository.getAll();
     }
 }

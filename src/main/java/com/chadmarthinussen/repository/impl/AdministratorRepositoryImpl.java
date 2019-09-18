@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Administrator;
+import com.chadmarthinussen.domain.UserlType.Administrator;
 import com.chadmarthinussen.repository.AdministratorRepository;
 import org.springframework.stereotype.Repository;
 

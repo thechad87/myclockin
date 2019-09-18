@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services;
 
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.UserlType.Staff;
 
 import java.util.Set;
 

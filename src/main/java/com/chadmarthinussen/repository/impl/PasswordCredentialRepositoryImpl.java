@@ -1,7 +1,8 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.PasswordCredential;
+import com.chadmarthinussen.domain.AccessTypes.PasswordCredential;
 import com.chadmarthinussen.repository.PasswordCredentialRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 /**
  * Created by ChadMarthinussen2 on 2019/05/01.
  */
+@Repository("PasswordCredentialRepositoryImp")
 public class PasswordCredentialRepositoryImpl implements PasswordCredentialRepository {
 
     private static PasswordCredentialRepositoryImpl repository = null;

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,9 +13,9 @@ public class ContractorRepositoryImplTest {
     public void getContractor(){
 
         boolean isContractor = true;
-        int timePeriod = 8;
-        int contractorID = 23456;
-        Contractor One = ContractorFactory.getContractor(isContractor, timePeriod, contractorID);
+        String  timePeriod = "8";
+        String contractorID = "23456";
+        Contractor One = ContractorFactory.buildContractor( isContractor, timePeriod, contractorID);
         System.out.println(One);
         Assert.assertEquals( timePeriod, One.getTimePeriodMonths());
     }

@@ -1,7 +1,8 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
-import com.chadmarthinussen.Domain.TimeAndDateStamp.DateTracker;
+import com.chadmarthinussen.domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.TimeAndDateStamp.DateTracker;
+import com.chadmarthinussen.factory.DateFactory;
 import com.chadmarthinussen.factory.DateTrackerFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,14 +24,14 @@ import static org.junit.Assert.assertNotNull;
 public class DateTrackerControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/dateTracker";
+    private String baseURL = "http://localhost:8080/clockin/dateTracker";
 
     @Test
     public void testGetAllDateTrackers() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -44,8 +45,9 @@ public class DateTrackerControllerTest {
 
     @Test
     public void testCreateDateTracker() {
-        DateTracker dateTracker = DateTrackerFactory.getDateTracker("DT001", "TS001" , new Date(date));
-        ResponseEntity<DateTracker> postResponse = restTemplate.postForEntity(baseURL + "/create", dateTracker, DateTracker.class);
+        Date date = DateFactory.buildDate("Da_01-08-2019", "01", "12", "1990");
+        DateTracker dateTracker = DateTrackerFactory.buildDateTracker("DT001", "TS001", date);
+        ResponseEntity <DateTracker> postResponse = restTemplate.postForEntity(baseURL + "/create", dateTracker, DateTracker.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

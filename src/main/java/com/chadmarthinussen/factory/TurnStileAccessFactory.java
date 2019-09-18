@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
-import com.chadmarthinussen.Domain.AccessTypes.TurnStileAccess;
+import com.chadmarthinussen.domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.TurnStileAccess;
 
 /**
  * Created by ChadMarthinussen2 on 2019/06/11.

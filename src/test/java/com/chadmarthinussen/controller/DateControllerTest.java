@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.AccessTypes.Date;
 import com.chadmarthinussen.factory.DateFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class DateControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/date";
+    private String baseURL = "http://localhost:8080/clockin/date";
 
     @Test
     public void testGetAllDates() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -43,8 +43,8 @@ public class DateControllerTest {
 
     @Test
     public void testCreateDate() {
-        Date date = DateFactory.getDate("0106201901", "01", "06", "2019" );
-        ResponseEntity<Date> postResponse = restTemplate.postForEntity(baseURL + "/create", date, Date.class);
+        Date date = DateFactory.buildDate("0106201901", "01", "06", "2019");
+        ResponseEntity <Date> postResponse = restTemplate.postForEntity(baseURL + "/create", date, Date.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

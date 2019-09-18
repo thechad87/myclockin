@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.UserlType.Staff;
 import com.chadmarthinussen.repository.StaffRepository;
 import com.chadmarthinussen.repository.impl.StaffRepositoryImpl;
 import com.chadmarthinussen.services.StaffService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("StaffServiceImpl")
+//@Service
 public class StaffServiceImpl implements StaffService {
 
     @Autowired

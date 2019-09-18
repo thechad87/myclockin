@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.AccessTypes.TurnStileAccess;
+import com.chadmarthinussen.domain.AccessTypes.TurnStileAccess;
 
 import java.util.Set;
 

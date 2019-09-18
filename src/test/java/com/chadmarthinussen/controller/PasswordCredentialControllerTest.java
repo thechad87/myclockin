@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.PasswordCredential;
+import com.chadmarthinussen.domain.AccessTypes.PasswordCredential;
 import com.chadmarthinussen.factory.PasswordCredentialFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ import static junit.framework.TestCase.assertNotNull;
 public class PasswordCredentialControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/passwordCredential";
+    private String baseURL="http://localhost:8080/clockin/passwordCredential";
 
     @Test
     public void testGetAllPasswordCredentials() {
@@ -43,7 +43,7 @@ public class PasswordCredentialControllerTest {
 
     @Test
     public void testCreatePasswordCredential() {
-        PasswordCredential passwordCredential = PasswordCredentialFactory.getPasswordCredential("#cput@2019", "joe soap", "joesoap@gmail.com");
+        PasswordCredential passwordCredential = PasswordCredentialFactory.buildPasswordCredential("#cput@2019", "joe soap", "joesoap@gmail.com");
         ResponseEntity<PasswordCredential> postResponse = restTemplate.postForEntity(baseURL + "/create", passwordCredential, PasswordCredential.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

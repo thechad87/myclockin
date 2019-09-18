@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.TurnStileAccess;
+import com.chadmarthinussen.domain.AccessTypes.TurnStileAccess;
 import com.chadmarthinussen.repository.TurnStileAccessRepository;
 import org.springframework.stereotype.Repository;
 

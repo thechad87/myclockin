@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 import com.chadmarthinussen.factory.InternFactory;
 import com.chadmarthinussen.repository.InternRepository;
 import org.junit.Assert;
@@ -29,7 +29,7 @@ public class InternRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = InternRepositoryImpl.getRepository();
-        this.intern = InternFactory.buildIntern("Test Intern");
+        this.intern = InternFactory.buildIntern(true, "Int123");
     }
 
     @Test
@@ -60,11 +60,11 @@ public class InternRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test Intern Name";
-        Intern intern = new Intern.Builder().copy(getSavedIntern()).internName(newname).build();
+        Intern intern = new Intern.Builder().copy(getSavedIntern()).internID(newname).build();
         System.out.println("In update, about_to_updated = " + intern);
         Intern updated = this.repository.update(intern);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getInternName());
+        Assert.assertSame(newname, updated.getInternID());
         d_getAll();
     }
 

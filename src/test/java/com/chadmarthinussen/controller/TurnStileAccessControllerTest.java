@@ -1,6 +1,8 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.TurnStileAccess;
+import com.chadmarthinussen.domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.TurnStileAccess;
+import com.chadmarthinussen.factory.TimeFactory;
 import com.chadmarthinussen.factory.TurnStileAccessFactory;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,7 +25,7 @@ import static junit.framework.TestCase.assertNotNull;
 public class TurnStileAccessControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/turnStileAccess";
+    private String baseURL="http://localhost:8080/clockin/turnStileAccess";
 
     @Test
     public void testGetAllTurnStileAccesss() {
@@ -45,7 +47,8 @@ public class TurnStileAccessControllerTest {
     @Test
     @Ignore
     public void testCreateTurnStileAccess() {
-        TurnStileAccess turnStileAccess = TurnStileAccessFactory.getTurnStileAccess("ACCESS#001", true);
+        Time time = new TimeFactory().buildTime("01", "01","60", "2");
+        TurnStileAccess turnStileAccess = TurnStileAccessFactory.buildTurnStileAccess("#001", true , time);
         ResponseEntity<TurnStileAccess> postResponse = restTemplate.postForEntity(baseURL + "/create", turnStileAccess, TurnStileAccess.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

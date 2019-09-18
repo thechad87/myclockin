@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 import com.chadmarthinussen.factory.InternFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class InternControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/intern";
+    private String baseURL = "http://localhost:8080/clockin/intern";
 
     @Test
     public void testGetAllInterns() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -43,8 +43,8 @@ public class InternControllerTest {
 
     @Test
     public void testCreateIntern() {
-        Intern intern = InternFactory.getIntern(true, "I001");
-        ResponseEntity<Intern> postResponse = restTemplate.postForEntity(baseURL + "/create", intern, Intern.class);
+        Intern intern = InternFactory.buildIntern(true, "I001");
+        ResponseEntity <Intern> postResponse = restTemplate.postForEntity(baseURL + "/create", intern, Intern.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

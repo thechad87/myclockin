@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Administrator;
+import com.chadmarthinussen.domain.UserlType.Administrator;
 import com.chadmarthinussen.factory.AdministratorFactory;
 import com.chadmarthinussen.repository.impl.AdministratorRepositoryImpl;
 import org.junit.Assert;
@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.Set;
 
@@ -18,6 +19,7 @@ import java.util.Set;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AdministratorServiceImplTest {
 
+    @Qualifier("AdministratorServiceImp")
     private AdministratorRepositoryImpl repository;
     private Administrator administrator;
 
@@ -41,11 +43,9 @@ public class AdministratorServiceImplTest {
 
     @Test
     public void c_update() {
-        String newAdministratorName = "Application Development Theory 3";
-        Administrator updated = new Administrator.Builder().copy(getSaved()).administrator(newAdministrator).build();
-        System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newAdministratorName, updated.getAdministratorName());
+        String Admin = "Ralph";
+        Administrator AdminTemp = new Administrator.Builder().copy(administrator).administratorID(Admin).build();
+        Assert.assertSame(Admin, AdminTemp.getAdministratorID());
     }
 
     @Test

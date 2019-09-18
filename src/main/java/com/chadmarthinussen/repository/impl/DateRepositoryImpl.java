@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Date;
+import com.chadmarthinussen.domain.AccessTypes.Date;
 import com.chadmarthinussen.repository.DateRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +21,7 @@ public class DateRepositoryImpl implements DateRepository {
         this.dates = new HashSet<>();
     }
 
-    private com.chadmarthinussen.Domain.AccessTypes.Date findDate(String dateID) {
+    private com.chadmarthinussen.domain.AccessTypes.Date findDate(String dateID) {
         return this.dates.stream()
                 .filter(date -> date.getDateID().trim().equals(dateID))
                 .findAny()
@@ -39,15 +39,6 @@ public class DateRepositoryImpl implements DateRepository {
         return date;
     }
 
-//    @Override
-//    public com.chadmarthinussen.Domain.AccessTypes.Date create(com.chadmarthinussen.Domain.AccessTypes.Date date) {
-//        return null;
-//    }
-
-//    @Override
-//    public com.chadmarthinussen.Domain.AccessTypes.Date update(com.chadmarthinussen.Domain.AccessTypes.Date date) {
-//        return null;
-//    }
 
     public Date read(final String dateID){
         Date date = findDate(dateID);

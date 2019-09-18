@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 
 import java.util.Set;
 

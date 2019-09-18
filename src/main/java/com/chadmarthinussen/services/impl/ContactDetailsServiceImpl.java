@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.PersonalDetails.ContactDetails;
+import com.chadmarthinussen.domain.PersonalDetails.ContactDetails;
 import com.chadmarthinussen.repository.ContactDetailsRepository;
 import com.chadmarthinussen.repository.impl.ContactDetailsRepositoryImpl;
 import com.chadmarthinussen.services.ContactDetailsService;
@@ -12,8 +12,8 @@ import java.util.Set;
 /**
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
-
 @Service("ContactDetailsServiceImpl")
+//@Service
 public class ContactDetailsServiceImpl implements ContactDetailsService {
 
     private static ContactDetailsServiceImpl service = null;

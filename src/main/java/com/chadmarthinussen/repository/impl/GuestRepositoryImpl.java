@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 import com.chadmarthinussen.repository.GuestRepository;
 import org.springframework.stereotype.Repository;
 
@@ -47,6 +47,10 @@ public class GuestRepositoryImpl implements GuestRepository {
     public void delete(String guestID) {
         Guest guest = findGuest(guestID);
         if (guest != null) this.guests.remove(guest);
+    }
+    @Override
+    public Guest retrieveByDesc(String guestID) {
+        return this.guests.stream().filter(guest -> guest.getGuestAssignedID().equalsIgnoreCase(guestID)).findAny().orElse(null);
     }
 
     public Guest update(Guest guest){

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 import com.chadmarthinussen.factory.GuestFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class GuestControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/guest";
+    private String baseURL = "http://localhost:8080/clockin/guest";
 
     @Test
     public void testGetAllGuests() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -43,8 +43,8 @@ public class GuestControllerTest {
 
     @Test
     public void testCreateGuest() {
-        Guest guest = GuestFactory.getGuest("Amazon", "007", "James Bond", "072000007");
-        ResponseEntity<Guest> postResponse = restTemplate.postForEntity(baseURL + "/create", guest, Guest.class);
+        Guest guest = GuestFactory.buildGuest("Amazon", "007", "James Bond", "072000007");
+        ResponseEntity <Guest> postResponse = restTemplate.postForEntity(baseURL + "/create", guest, Guest.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

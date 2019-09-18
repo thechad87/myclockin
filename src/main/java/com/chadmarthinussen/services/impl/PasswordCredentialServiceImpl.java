@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.PasswordCredential;
+import com.chadmarthinussen.domain.AccessTypes.PasswordCredential;
 import com.chadmarthinussen.repository.PasswordCredentialRepository;
 import com.chadmarthinussen.repository.impl.PasswordCredentialRepositoryImpl;
 import com.chadmarthinussen.services.PasswordCredentialService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("PasswordCredentialServiceImpl")
+//@Service
 public class PasswordCredentialServiceImpl implements PasswordCredentialService {
 
     @Autowired

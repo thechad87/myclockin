@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.TimeAndDateStamp.TimeTracker;
+import com.chadmarthinussen.domain.TimeAndDateStamp.TimeTracker;
 import com.chadmarthinussen.repository.TimeTrackerRepository;
 import com.chadmarthinussen.repository.impl.TimeTrackerRepositoryImpl;
 import com.chadmarthinussen.services.TimeTrackerService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("TimeTrackerServiceImpl")
+//@Service
 public class TimeTrackerServiceImpl implements TimeTrackerService {
 
     @Autowired

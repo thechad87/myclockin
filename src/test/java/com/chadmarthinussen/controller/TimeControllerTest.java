@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.Time;
 import com.chadmarthinussen.factory.TimeFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 public class TimeControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/time";
+    private String baseURL="http://localhost:8080/clockin/time";
 
     @Test
     public void testGetAllTimes() {
@@ -43,7 +43,7 @@ public class TimeControllerTest {
 
     @Test
     public void testCreateTime() {
-        Time time = TimeFactory.getTime();
+        Time time = TimeFactory.buildTime("234", "01", "06", "12");
         ResponseEntity<Time> postResponse = restTemplate.postForEntity(baseURL + "/create", time, Time.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

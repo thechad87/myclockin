@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.PersonalDetails.ContactDetails;
+import com.chadmarthinussen.domain.PersonalDetails.ContactDetails;
 
 import java.util.Set;
 

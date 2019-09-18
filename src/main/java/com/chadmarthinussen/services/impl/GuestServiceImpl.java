@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 import com.chadmarthinussen.repository.GuestRepository;
 import com.chadmarthinussen.repository.impl.GuestRepositoryImpl;
 import com.chadmarthinussen.services.GuestService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("GuestServiceImpl")
+//@Service
 public class GuestServiceImpl implements GuestService {
 
     @Autowired
@@ -49,6 +50,10 @@ public class GuestServiceImpl implements GuestService {
         return this.repository.read(s);
     }
 
+    @Override
+    public Guest retrieveByDesc(String genderDesc) {
+        return this.repository.retrieveByDesc(genderDesc);
+    }
     @Override
     public Set<Guest> getAll() {
         return this.repository.getAll();

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Administrator;
+import com.chadmarthinussen.domain.UserlType.Administrator;
 import com.chadmarthinussen.repository.AdministratorRepository;
 import com.chadmarthinussen.repository.impl.AdministratorRepositoryImpl;
 import com.chadmarthinussen.services.AdministratorService;
@@ -12,9 +12,8 @@ import java.util.Set;
 /**
  * Created by ChadMarthinussen2 on 2019/06/08.
  */
-
-    @Service("AdministratorServiceImp")
-    public class AdministratorServiceImpl implements AdministratorService {
+@Service("AdministratorServiceImp")
+public class AdministratorServiceImpl implements AdministratorService {
     @Autowired
     private AdministratorRepository repository;
     private static AdministratorServiceImpl service = null;
@@ -23,7 +22,7 @@ import java.util.Set;
         this.repository = AdministratorRepositoryImpl.getRepository();
     }
 
-    public static AdministratorServiceImpl getService(){
+    public static AdministratorServiceImpl getService() {
         if (service == null) service = new AdministratorServiceImpl();
         return service;
     }
@@ -48,8 +47,13 @@ import java.util.Set;
         return this.repository.read(s);
     }
 
+//    @Override
+//    public Administrator retrieveByDesc(String genderDesc) {
+//        return this.repository.retrieveByDesc(genderDesc);
+//    }
+
     @Override
-    public Set<Administrator> getAll() {
+    public Set <Administrator> getAll() {
         return this.repository.getAll();
     }
 }

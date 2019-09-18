@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 
 /**
  * Created by ChadMarthinussen2 on 2019/06/11.

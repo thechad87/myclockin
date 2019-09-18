@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 import com.chadmarthinussen.factory.NameFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ import static junit.framework.TestCase.assertNotNull;
 public class NameControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/name";
+    private String baseURL="http://localhost:8080/clockin/name";
 
     @Test
     public void testGetAllNames() {
@@ -43,7 +43,7 @@ public class NameControllerTest {
 
     @Test
     public void testCreateName() {
-        Name name = NameFactory.getName("NA001", "Neil", "Arm", "Strong");
+        Name name = NameFactory.buildName("NA001", "Neil", "Arm", "Strong");
         ResponseEntity<Name> postResponse = restTemplate.postForEntity(baseURL + "/create", name, Name.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

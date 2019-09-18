@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.Location.SiteLocation;
+import com.chadmarthinussen.domain.Location.SiteLocation;
 import com.chadmarthinussen.factory.SiteLocationFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 public class SiteLocationControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/siteLocation";
+    private String baseURL="http://localhost:8080/clockin/siteLocation";
 
     @Test
     public void testGetAllSiteLocations() {
@@ -43,7 +43,7 @@ public class SiteLocationControllerTest {
 
     @Test
     public void testCreateSiteLocation() {
-        SiteLocation siteLocation = SiteLocationFactory.getSiteLocation("S1001", "156" , "Edward_Street", "Cape_Town", "Cape_Town", "8000");
+        SiteLocation siteLocation = SiteLocationFactory.buildSiteLocation("S1001", "156" , "Edward_Street", "Cape_Town", "Cape_Town", "8000");
         ResponseEntity<SiteLocation> postResponse = restTemplate.postForEntity(baseURL + "/create", siteLocation, SiteLocation.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

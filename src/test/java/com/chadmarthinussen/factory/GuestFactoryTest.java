@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,10 +12,11 @@ public class GuestFactoryTest {
     @Test
     public void getGuest(){
 
-        String organizName = "Java Sun";
-        long guestID  = 123456789;
-        String fulName = "Joe Barber";
-        Guest One = GuestFactory.getGuest(organizName, guestID, fulName, "0730513131");
+        String organizationName = "Java Sun";
+        String guestID  = "123456789";
+        String fullName = "Joe Barber";
+        String contanctDetails = "123456";
+        Guest One = GuestFactory.buildGuest(organizationName, guestID, fullName , contanctDetails);
         System.out.println(One);
         Assert.assertEquals(String.valueOf(guestID), One.getGuestAssignedID());
     }

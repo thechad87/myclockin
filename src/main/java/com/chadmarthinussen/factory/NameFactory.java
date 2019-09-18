@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/22.

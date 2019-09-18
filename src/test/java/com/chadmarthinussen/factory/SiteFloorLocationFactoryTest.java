@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.Location.SiteFloorLocation;
+import com.chadmarthinussen.domain.Location.SiteFloorLocation;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,9 +12,11 @@ public class SiteFloorLocationFactoryTest {
     @Test
     public void getBuildingFloorLocation(){
 
+        String siteFloor = "Engineering Building";
         String buildingLoc = "Engineering Building";
-        int floorNum = 1;
-        SiteFloorLocation One = SiteFloorLocationFactory.getBuildingFloorLocation(buildingLoc, floorNum);
+        String floorNumber = "Engineering Building";
+        String entrance = "Engineering Building";
+        SiteFloorLocation One = SiteFloorLocationFactory.buildSiteFloorLocation(siteFloor, buildingLoc, floorNumber, entrance);
         System.out.println(One);
         Assert.assertEquals( buildingLoc, One.getBuildingLocation());
     }

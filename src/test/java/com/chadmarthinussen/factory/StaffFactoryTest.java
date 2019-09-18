@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.UserlType.Staff;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,10 +15,9 @@ public class StaffFactoryTest {
     @Test
     public void getStaff(){
 
-        String surname = "marty";
-        long staffID = 124567890;
-        Staff One = StaffFactory.getStaff( new Name("chad", "mart", "marty"), "");
-        System.out.println(One);
-        Assert.assertEquals( staffID, One.getStaffID());
+        Name name = new NameFactory().buildName("N4353", "bat", "james", "man");
+        Staff staff = new StaffFactory().buildStaff(name,"7023422");
+        System.out.println(staff);
+        Assert.assertEquals( staff,  staff.getStaffID());
     }
 }

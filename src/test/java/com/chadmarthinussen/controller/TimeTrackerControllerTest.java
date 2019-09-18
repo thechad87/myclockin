@@ -1,7 +1,7 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
-import com.chadmarthinussen.Domain.TimeAndDateStamp.TimeTracker;
+import com.chadmarthinussen.domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.TimeAndDateStamp.TimeTracker;
 import com.chadmarthinussen.factory.TimeFactory;
 import com.chadmarthinussen.factory.TimeTrackerFactory;
 import org.junit.Ignore;
@@ -25,7 +25,7 @@ import static junit.framework.TestCase.assertNotNull;
 public class TimeTrackerControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/timeTracker";
+    private String baseURL="http://localhost:8080/clockin/timeTracker";
 
     @Test
     public void testGetAllTimeTrackers() {
@@ -47,8 +47,8 @@ public class TimeTrackerControllerTest {
     @Test
     @Ignore
     public void testCreateTimeTracker() {
-//        Time time = TimeFactory.getTime("CL01", "09", "50", "08");
-        TimeTracker timeTracker = TimeTrackerFactory.getTimeTracker("Clock01", true);
+        Time time = TimeFactory.buildTime("CL01", "09", "50", "08");
+        TimeTracker timeTracker = TimeTrackerFactory.buildTimeTracker("ID122", time  , time , true);
         ResponseEntity<TimeTracker> postResponse = restTemplate.postForEntity(baseURL + "/create", timeTracker, TimeTracker.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

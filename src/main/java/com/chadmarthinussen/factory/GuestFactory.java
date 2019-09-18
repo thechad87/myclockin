@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
 
-import com.chadmarthinussen.Domain.UserlType.Guest;
+import com.chadmarthinussen.domain.UserlType.Guest;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/17.

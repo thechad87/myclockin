@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.Time;
 import com.chadmarthinussen.repository.TimeRepository;
 import org.springframework.stereotype.Repository;
 

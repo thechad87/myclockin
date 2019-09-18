@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Administrator;
+import com.chadmarthinussen.domain.UserlType.Administrator;
 import com.chadmarthinussen.factory.AdministratorFactory;
 import com.chadmarthinussen.repository.AdministratorRepository;
 import org.junit.Assert;
@@ -61,7 +61,7 @@ public class AdministratorRepositoryImplTest {
     @Test
     public void c_update() {
         String Admin = "Administrator";
-        Administrator administrator = new Administrator.Builder().copy(getSavedAdministrator()).administrator(Admin).build();
+        Administrator administrator =  new Administrator.Builder().copy(getSavedAdministrator()).administratorID(Admin).build();
         System.out.println("In update, about_to_updated = " + administrator);
         Administrator updated = this.repository.update(administrator);
         System.out.println("In update, updated = " + updated);

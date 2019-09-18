@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.AccessTypes.Authorization;
+import com.chadmarthinussen.domain.AccessTypes.Authorization;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/30.

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,9 +13,9 @@ public class TimeFactoryTest {
 
 
         boolean isContractor = true;
-        int timePeriod = 8;
+        String timePeriod = "12";
         String contractorID = "W23456";
-        Contractor One = ContractorFactory.getContractor(isContractor, timePeriod, contractorID);
+        Contractor One = ContractorFactory.buildContractor(isContractor, timePeriod, contractorID );
         System.out.println(One);
         Assert.assertEquals( timePeriod, One.getTimePeriodMonths());
 

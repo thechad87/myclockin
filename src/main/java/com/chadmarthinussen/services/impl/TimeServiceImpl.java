@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.Time;
 import com.chadmarthinussen.repository.TimeRepository;
 import com.chadmarthinussen.repository.impl.TimeRepositoryImpl;
 import com.chadmarthinussen.services.TimeService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("TimeServiceImpl")
+//@Service
 public class TimeServiceImpl implements TimeService {
 
     @Autowired

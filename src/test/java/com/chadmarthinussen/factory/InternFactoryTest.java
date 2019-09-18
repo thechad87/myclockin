@@ -1,6 +1,6 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,9 +12,9 @@ public class InternFactoryTest {
     @Test
     public void getIntern(){
 
-        boolean ifIntern = true;
-        long interID = 1567998875;
-        Intern one = InternFactory.getIntern(ifIntern, interID);
+        boolean isIntern = true;
+        String interID = "1567998875";
+        Intern one = InternFactory.buildIntern(isIntern, interID);
         Assert.assertEquals(interID, one.getInternID());
 
     }

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.UserlType.Contractor;
 import com.chadmarthinussen.factory.ContractorFactory;
 import com.chadmarthinussen.repository.ContractorRepository;
 import org.junit.Assert;
@@ -29,7 +29,7 @@ public class ContractorRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = ContractorRepositoryImpl.getRepository();
-        this.contractor = ContractorFactory.buildContractor(true, true , "3432487");
+        this.contractor = ContractorFactory.buildContractor(true , "3432487", "ID123");
     }
 
     @Test
@@ -59,12 +59,12 @@ public class ContractorRepositoryImplTest {
 
     @Test
     public void c_update() {
-        String Contr = "New Test Contractor";
-        Contractor contractor = new Contractor.Builder().copy(getSavedContractor()).contractorName(Contr).build();
+        String Contr = "ID11";
+        Contractor contractor = new Contractor.Builder().copy(getSavedContractor()).contractorID(Contr).build();
         System.out.println("In update, about_to_updated = " + contractor);
         Contractor updated = this.repository.update(contractor);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(Contr, updated.getContractor());
+        Assert.assertSame(Contr, updated.getContractorID());
         d_getAll();
     }
 

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Authorization;
+import com.chadmarthinussen.domain.AccessTypes.Authorization;
 import com.chadmarthinussen.factory.AuthorizationFactory;
 import com.chadmarthinussen.repository.AuthorizationRepository;
 import org.junit.Assert;
@@ -9,10 +9,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.Set;
 
@@ -50,8 +47,8 @@ public class AuthorizationRepositoryImplTest {
     @Test
     public void b_read() {
         Authorization savedAuthorization = getSavedAuthorization();
-        System.out.println("In read, authorizationID = "+ savedAuthorization.getAuthorizationID());
-        Authorization read = this.repository.read(savedAuthorization.getAuthorizationID());
+        System.out.println("In read, authorizationID = "+ savedAuthorization.getUserTypeID());
+        Authorization read = this.repository.read(savedAuthorization.getUserTypeID());
         System.out.println("In read, read = " + read);
         d_getAll();
         Assert.assertEquals(savedAuthorization, read);
@@ -60,18 +57,18 @@ public class AuthorizationRepositoryImplTest {
     @Test
     public void e_delete() {
         Authorization savedAuthorization = getSavedAuthorization();
-        this.repository.delete(savedAuthorization.getAuthorizationID());
+        this.repository.delete(savedAuthorization.getUserTypeID());
         d_getAll();
     }
 
     @Test
     public void c_update() {
         String Admin = "New Test Authorization";
-        Authorization authorization = new Authorization.Builder().copy(getSavedAuthorization()).authorization(Admin).build();
+        Authorization authorization = new Authorization.Builder().copy(getSavedAuthorization()).userTypeID(Admin).build();
         System.out.println("In update, about_to_updated = " + authorization);
         Authorization updated = this.repository.update(authorization);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(Admin, updated.getAuthorization());
+        Assert.assertSame(Admin, updated.getUserTypeID());
         d_getAll();
     }
 

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.UserlType.Intern;
+import com.chadmarthinussen.domain.UserlType.Intern;
 
 import java.util.Set;
 
@@ -9,5 +9,4 @@ import java.util.Set;
  */
 public interface InternRepository extends IRepository<Intern,String>  {
     Set<Intern> getAll();
-
 }

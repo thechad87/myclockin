@@ -1,6 +1,6 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.UserlType.Administrator;
+import com.chadmarthinussen.domain.UserlType.Administrator;
 import com.chadmarthinussen.factory.AdministratorFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,20 +17,20 @@ import static junit.framework.TestCase.assertNotNull;
 /**
  * Created by ChadMarthinussen2 on 2019/06/11.
  */
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 public class AdministratorControllerTest {
+
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/administrator";
+    private String baseURL = "http://localhost:8080/clockin/administrator";
 
     @Test
     public void testGetAllAdministrators() {
         HttpHeaders headers = new HttpHeaders();
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
+        HttpEntity <String> entity = new HttpEntity <String>(null, headers);
+        ResponseEntity <String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
     }
@@ -44,8 +44,8 @@ public class AdministratorControllerTest {
 
     @Test
     public void testCreateAdministrator() {
-        Administrator administrator = AdministratorFactory.getAdministrator("#00166F", true, true);
-        ResponseEntity<Administrator> postResponse = restTemplate.postForEntity(baseURL + "/create", administrator, Administrator.class);
+        Administrator administrator = AdministratorFactory.buildAdministrator("#00166F", true, true);
+        ResponseEntity <Administrator> postResponse = restTemplate.postForEntity(baseURL + "/create", administrator, Administrator.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
     }

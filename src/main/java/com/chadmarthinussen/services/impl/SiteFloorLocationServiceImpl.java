@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.Location.SiteFloorLocation;
+import com.chadmarthinussen.domain.Location.SiteFloorLocation;
 import com.chadmarthinussen.repository.SiteFloorLocationRepository;
 import com.chadmarthinussen.repository.impl.SiteFloorLocationRepositoryImpl;
 import com.chadmarthinussen.services.SiteFloorLocationService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/11.
  */
 @Service("SiteFloorLocationServiceImpl")
+//@Service
 public class SiteFloorLocationServiceImpl implements SiteFloorLocationService {
 
     @Autowired

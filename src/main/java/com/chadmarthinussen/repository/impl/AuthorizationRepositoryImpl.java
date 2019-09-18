@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Authorization;
+import com.chadmarthinussen.domain.AccessTypes.Authorization;
 import com.chadmarthinussen.repository.AuthorizationRepository;
 import org.springframework.stereotype.Repository;
 

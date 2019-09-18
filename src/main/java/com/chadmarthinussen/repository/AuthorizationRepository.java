@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.AccessTypes.Authorization;
+import com.chadmarthinussen.domain.AccessTypes.Authorization;
 
 import java.util.Set;
 

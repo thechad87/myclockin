@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Authorization;
+import com.chadmarthinussen.domain.AccessTypes.Authorization;
 import com.chadmarthinussen.repository.AuthorizationRepository;
 import com.chadmarthinussen.repository.impl.AuthorizationRepositoryImpl;
 import com.chadmarthinussen.services.AuthorizationService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("AuthorizationServiceImpl")
+//@Service
 public class AuthorizationServiceImpl implements AuthorizationService {
     @Autowired
     private AuthorizationRepository repository;

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.Time;
 
 import java.util.Set;
 

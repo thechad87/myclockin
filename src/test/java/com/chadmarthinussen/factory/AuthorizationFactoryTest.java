@@ -1,17 +1,14 @@
 package com.chadmarthinussen.factory;
 
-import org.junit.Test;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 /**
  * Created by ChadMarthinussen2 on 2019/06/11.
  */
-public class AuthorizationFactoryTest {
-    @Test
-    public void getAuthorization1() throws Exception {
-    }
 
-    @Test
-    public void getAuthorization() throws Exception {
-    }
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class AuthorizationFactoryTest {
+
 
 }

@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.AccessTypes.Time;
 import com.chadmarthinussen.factory.TimeFactory;
 import com.chadmarthinussen.repository.TimeRepository;
 import org.junit.Assert;
@@ -28,7 +28,7 @@ public class TimeRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = TimeRepositoryImpl.getRepository();
-        this.time = TimeFactory.buildTime("Test Time");
+        this.time = TimeFactory.buildTime("T1_122", "01", "10", "12");
     }
 
     @Test
@@ -59,11 +59,11 @@ public class TimeRepositoryImplTest {
     @Test
     public void c_update() {
         String newname = "New Test Time Name";
-        Time time = new Time.Builder().copy(getSavedTime()).timeName(newname).build();
+        Time time = new Time.Builder().copy(getSavedTime()).timeID(newname).build();
         System.out.println("In update, about_to_updated = " + time);
         Time updated = this.repository.update(time);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getTimeName());
+        Assert.assertSame(newname, updated.getTimeID());
         d_getAll();
     }
 

@@ -1,7 +1,7 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.UserlType.Staff;
 
 /**
  * Created by ChadMarthinussen2 on 2019/04/10.

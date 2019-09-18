@@ -1,6 +1,6 @@
 package com.chadmarthinussen.services.impl;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 import com.chadmarthinussen.repository.NameRepository;
 import com.chadmarthinussen.repository.impl.NameRepositoryImpl;
 import com.chadmarthinussen.services.NameService;
@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by ChadMarthinussen2 on 2019/06/10.
  */
 @Service("NameServiceImpl")
+//@Service
 public class NameServiceImpl implements NameService {
 
     @Autowired

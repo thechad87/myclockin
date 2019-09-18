@@ -1,6 +1,6 @@
 package com.chadmarthinussen.repository.impl;
 
-import com.chadmarthinussen.Domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
 import com.chadmarthinussen.repository.NameRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,8 @@
 package com.chadmarthinussen.controller;
 
-import com.chadmarthinussen.Domain.UserlType.Staff;
+import com.chadmarthinussen.domain.PersonalDetails.Name;
+import com.chadmarthinussen.domain.UserlType.Staff;
+import com.chadmarthinussen.factory.NameFactory;
 import com.chadmarthinussen.factory.StaffFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +13,6 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
-import static com.sun.xml.internal.ws.policy.sourcemodel.wspolicy.XmlToken.Name;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -23,7 +24,7 @@ import static junit.framework.TestCase.assertNotNull;
 public class StaffControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/staff";
+    private String baseURL="http://localhost:8080/clockin/staff";
 
     @Test
     public void testGetAllStaffs() {
@@ -44,7 +45,8 @@ public class StaffControllerTest {
 
     @Test
     public void testCreateStaff() {
-        Staff staff = StaffFactory.getStaff(Name.name(), "7000001");
+        Name name = new NameFactory().buildName("Na12", "joe", "clean", "soap");
+        Staff staff = StaffFactory.buildStaff( name, "313455");
         ResponseEntity<Staff> postResponse = restTemplate.postForEntity(baseURL + "/create", staff, Staff.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());

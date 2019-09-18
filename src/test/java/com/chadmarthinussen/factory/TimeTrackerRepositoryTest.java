@@ -1,6 +1,7 @@
 package com.chadmarthinussen.factory;
 
-import com.chadmarthinussen.Domain.UserlType.Contractor;
+import com.chadmarthinussen.domain.AccessTypes.Time;
+import com.chadmarthinussen.domain.TimeAndDateStamp.TimeTracker;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,17 +16,13 @@ public class TimeTrackerRepositoryTest {
 
 
         boolean isContractor = true;
-        int timePeriod = 8;
-        String contractorID = "W23456";
-        Contractor One = ContractorFactory.getContractor(isContractor, timePeriod, contractorID);
+        Time timeIn = TimeFactory.buildTime("T23", "30", "24", "5");
+        Time timeOut = TimeFactory.buildTime("T24", "45", "14", "12");
+        TimeTracker One = TimeTrackerFactory.buildTimeTracker("D123", timeIn, timeOut, true);
         System.out.println(One);
-        Assert.assertEquals( timePeriod, One.getTimePeriodMonths());
+        Assert.assertEquals( "", One.getTimeTrackerID());
 
 
     }
 
 }
-
-//    private Time userCheckInTimer;
-//    private Time userCheckOutTimer;
-//    private boolean isCurrentlyCheckedIn;
